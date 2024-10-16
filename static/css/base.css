@@ -36,6 +36,10 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.custom-container {
+    background-color: var(--white);
+}
+
 /* Icon Styling */
 .icon {
     align-items: center;
