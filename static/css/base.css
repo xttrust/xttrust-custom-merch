@@ -36,11 +36,12 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+/* container */
 .custom-container {
     background-color: var(--white);
 }
 
-/* Icon Styling */
+/* Icon */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -57,7 +58,7 @@ body {
     width: fit-content;
 }
 
-/* Button Styling */
+/* Button */
 .shop-now-button {
     background: var(--button-bg);
     color: var(--white);
@@ -221,5 +222,16 @@ button:active, .btn:active {
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
     }
 }
