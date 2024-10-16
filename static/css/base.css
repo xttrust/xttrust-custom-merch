@@ -32,7 +32,7 @@ body {
     background: url('/media/main-bg.webp') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: var(--dark); /* Dark color for text */
+    color: var(--dark);
     font-family: 'Lato', sans-serif;
 }
 
@@ -116,31 +116,77 @@ body {
     font-style: normal;
   }
   
-/* Top Nav Styles */
+/* Top Nav */
 #top-nav {
     background-color: rgba(0, 0, 0, 0.6);
     color: #FFFFFF;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); 
-    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+    border-bottom: 1px solid #000000;
 }
 
-#top-nav:hover {
-    opacity: 1; 
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.8); 
+/* Main Nav */
+#main-nav-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #FFFFFF;
+    border-bottom: 1px solid #000000;
+}
+
+/* Base styling for the navigation links */
+.nav-link {
+    color: #FFFFFF;
+    position: relative; /* Required for pseudo-elements */
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #D32F2F;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #D32F2F;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::before {
+    visibility: visible;
+    width: 100%;
+}
+
+.dropdown-item {
+    color: #000000; 
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    color: #FFFFFF;
+    background-color: #D32F2F;
+}
+
+
+/* delivery-banner */
+#delivery-banner {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #FFFFFF;
 }
 
 /* Button Styles */
 button, .btn {
-    background-color: var(--primary); /* Primary button color (red, in your case) */
-    color: var(--white); /* White text */
-    border: none; /* Remove default borders */
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition on shadow and scale */
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 /* Box Shadow on Hover */
 button:hover, .btn:hover {
-    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.5); /* White bottom drop shadow */
-    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.5); 
+    transform: translateY(-2px); 
 }
 
 /* Optional active state */

@@ -1,0 +1,110 @@
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+        <!-- All Products -->
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" 
+                href="#" 
+                id="all-products-link" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+                All Products
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'home' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'home' %}?sort=rating&direction=desc" class="dropdown-item">By Rating</a>
+                <a href="{% url 'home' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
+                <a href="{% url 'home' %}" class="dropdown-item">All Products</a>
+            </div>
+        </li>
+
+        <!-- Apparel -->
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" 
+                href="#" 
+                id="apparel-link" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+                Apparel
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="apparel-link">
+                <a href="{% url 'home' %}?category=t-shirts" class="dropdown-item">T-Shirts</a>
+                <a href="{% url 'home' %}?category=hoodies" class="dropdown-item">Hoodies</a>
+                <a href="{% url 'home' %}?category=hats" class="dropdown-item">Hats & Caps</a>
+                <a href="{% url 'home' %}?category=t-shirts,hoodies,hats" class="dropdown-item">All Apparel</a>
+            </div>
+        </li>
+
+        <!-- Accessories -->
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" 
+                href="#" 
+                id="accessories-link" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+                Accessories
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="accessories-link">
+                <a href="{% url 'home' %}?category=phone-cases" class="dropdown-item">Phone Cases</a>
+                <a href="{% url 'home' %}?category=laptop-sleeves" class="dropdown-item">Laptop Sleeves</a>
+                <a href="{% url 'home' %}?category=backpacks" class="dropdown-item">Backpacks</a>
+                <a href="{% url 'home' %}?category=phone-cases,laptop-sleeves,backpacks" class="dropdown-item">All Accessories</a>
+            </div>
+        </li>
+
+        <!-- Tech Gear -->
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" 
+                href="#" 
+                id="tech-gear-link" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+                Tech Gear
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="tech-gear-link">
+                <a href="{% url 'home' %}?category=mousepads" class="dropdown-item">Mousepads</a>
+                <a href="{% url 'home' %}?category=usb-hubs" class="dropdown-item">USB Hubs</a>
+                <a href="{% url 'home' %}?category=headphones" class="dropdown-item">Headphones</a>
+                <a href="{% url 'home' %}?category=mousepads,usb-hubs,headphones" class="dropdown-item">All Tech Gear</a>
+            </div>
+        </li>
+
+        <!-- Drinkware -->
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" 
+                href="#" 
+                id="drinkware-link" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+                Drinkware
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="drinkware-link">
+                <a href="{% url 'home' %}?category=mugs" class="dropdown-item">Mugs</a>
+                <a href="{% url 'home' %}?category=water-bottles" class="dropdown-item">Water Bottles</a>
+                <a href="{% url 'home' %}?category=tumblers" class="dropdown-item">Tumblers</a>
+                <a href="{% url 'home' %}?category=mugs,water-bottles,tumblers" class="dropdown-item">All Drinkware</a>
+            </div>
+        </li>
+
+        <!-- Special Offers -->
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white" 
+                href="#" id="specials-link" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+                Special Offers
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                <a href="{% url 'home' %}?category=new-arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'home' %}?category=deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'home' %}?category=clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'home' %}?category=new-arrivals,deals,clearance" class="dropdown-item">All Specials</a>
+            </div>
+        </li>
+    </ul>
+</div>
