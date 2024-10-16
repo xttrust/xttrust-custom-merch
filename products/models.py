@@ -44,6 +44,9 @@ class Product(models.Model):
     description = models.TextField(
         help_text="Detailed description of the product."
     )
+    has_sizes = models.BooleanField(
+        default=False, null=True, blank=True
+    )
     price = models.DecimalField(
         max_digits=6, decimal_places=2, help_text="Price of the product."
     )
