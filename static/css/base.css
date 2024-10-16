@@ -36,6 +36,11 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+/* Caregory badge */
+a.category-badge > span.badge:hover {
+    background-color: var(--primary-hover);
+}
+
 /* container */
 .custom-container {
     background-color: var(--white);
