@@ -1,0 +1,122 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "t-shirts",
+            "friendly_name": "T-Shirts"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "hoodies",
+            "friendly_name": "Hoodies"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "hats",
+            "friendly_name": "Hats & Caps"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "phone_cases",
+            "friendly_name": "Phone Cases"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "laptop_sleeves",
+            "friendly_name": "Laptop Sleeves"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "backpacks",
+            "friendly_name": "Backpacks"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.category",
+        "fields": {
+            "name": "mousepads",
+            "friendly_name": "Mousepads"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.category",
+        "fields": {
+            "name": "usb_hubs",
+            "friendly_name": "USB Hubs"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.category",
+        "fields": {
+            "name": "headphones",
+            "friendly_name": "Headphones"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.category",
+        "fields": {
+            "name": "mugs",
+            "friendly_name": "Mugs"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.category",
+        "fields": {
+            "name": "water_bottles",
+            "friendly_name": "Water Bottles"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.category",
+        "fields": {
+            "name": "tumblers",
+            "friendly_name": "Tumblers"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.category",
+        "fields": {
+            "name": "new_arrivals",
+            "friendly_name": "New Arrivals"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.category",
+        "fields": {
+            "name": "deals",
+            "friendly_name": "Deals"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.category",
+        "fields": {
+            "name": "clearance",
+            "friendly_name": "Clearance"
+        }
+    }
+]
