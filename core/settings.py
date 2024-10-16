@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Custom apps
     'home',    
     'products',
+    'bag',
 
     # Allauth
     'django.contrib.sites',
