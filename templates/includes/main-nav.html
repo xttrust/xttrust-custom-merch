@@ -11,9 +11,9 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'home' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{% url 'home' %}?sort=rating&direction=desc" class="dropdown-item">By Rating</a>
-                <a href="{% url 'home' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -29,10 +29,10 @@
                 Apparel
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="apparel-link">
-                <a href="{% url 'home' %}?category=t-shirts" class="dropdown-item">T-Shirts</a>
-                <a href="{% url 'home' %}?category=hoodies" class="dropdown-item">Hoodies</a>
-                <a href="{% url 'home' %}?category=hats" class="dropdown-item">Hats & Caps</a>
-                <a href="{% url 'home' %}?category=t-shirts,hoodies,hats" class="dropdown-item">All Apparel</a>
+                <a href="{% url 'products' %}?category=t-shirts" class="dropdown-item">T-Shirts</a>
+                <a href="{% url 'products' %}?category=hoodies" class="dropdown-item">Hoodies</a>
+                <a href="{% url 'products' %}?category=hats" class="dropdown-item">Hats & Caps</a>
+                <a href="{% url 'products' %}?category=t-shirts,hoodies,hats" class="dropdown-item">All Apparel</a>
             </div>
         </li>
 
@@ -47,10 +47,10 @@
                 Accessories
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="accessories-link">
-                <a href="{% url 'home' %}?category=phone-cases" class="dropdown-item">Phone Cases</a>
-                <a href="{% url 'home' %}?category=laptop-sleeves" class="dropdown-item">Laptop Sleeves</a>
-                <a href="{% url 'home' %}?category=backpacks" class="dropdown-item">Backpacks</a>
-                <a href="{% url 'home' %}?category=phone-cases,laptop-sleeves,backpacks" class="dropdown-item">All Accessories</a>
+                <a href="{% url 'products' %}?category=phone-cases" class="dropdown-item">Phone Cases</a>
+                <a href="{% url 'products' %}?category=laptop-sleeves" class="dropdown-item">Laptop Sleeves</a>
+                <a href="{% url 'products' %}?category=backpacks" class="dropdown-item">Backpacks</a>
+                <a href="{% url 'products' %}?category=phone-cases,laptop-sleeves,backpacks" class="dropdown-item">All Accessories</a>
             </div>
         </li>
 
@@ -65,10 +65,10 @@
                 Tech Gear
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="tech-gear-link">
-                <a href="{% url 'home' %}?category=mousepads" class="dropdown-item">Mousepads</a>
-                <a href="{% url 'home' %}?category=usb-hubs" class="dropdown-item">USB Hubs</a>
-                <a href="{% url 'home' %}?category=headphones" class="dropdown-item">Headphones</a>
-                <a href="{% url 'home' %}?category=mousepads,usb-hubs,headphones" class="dropdown-item">All Tech Gear</a>
+                <a href="{% url 'products' %}?category=mousepads" class="dropdown-item">Mousepads</a>
+                <a href="{% url 'products' %}?category=usb-hubs" class="dropdown-item">USB Hubs</a>
+                <a href="{% url 'products' %}?category=headphones" class="dropdown-item">Headphones</a>
+                <a href="{% url 'products' %}?category=mousepads,usb-hubs,headphones" class="dropdown-item">All Tech Gear</a>
             </div>
         </li>
 
@@ -83,10 +83,10 @@
                 Drinkware
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="drinkware-link">
-                <a href="{% url 'home' %}?category=mugs" class="dropdown-item">Mugs</a>
-                <a href="{% url 'home' %}?category=water-bottles" class="dropdown-item">Water Bottles</a>
-                <a href="{% url 'home' %}?category=tumblers" class="dropdown-item">Tumblers</a>
-                <a href="{% url 'home' %}?category=mugs,water-bottles,tumblers" class="dropdown-item">All Drinkware</a>
+                <a href="{% url 'products' %}?category=mugs" class="dropdown-item">Mugs</a>
+                <a href="{% url 'products' %}?category=water-bottles" class="dropdown-item">Water Bottles</a>
+                <a href="{% url 'products' %}?category=tumblers" class="dropdown-item">Tumblers</a>
+                <a href="{% url 'products' %}?category=mugs,water-bottles,tumblers" class="dropdown-item">All Drinkware</a>
             </div>
         </li>
 
@@ -100,10 +100,10 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="{% url 'home' %}?category=new-arrivals" class="dropdown-item">New Arrivals</a>
-                <a href="{% url 'home' %}?category=deals" class="dropdown-item">Deals</a>
-                <a href="{% url 'home' %}?category=clearance" class="dropdown-item">Clearance</a>
-                <a href="{% url 'home' %}?category=new-arrivals,deals,clearance" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=new-arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'products' %}?category=new-arrivals,deals,clearance" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>
