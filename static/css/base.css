@@ -1,0 +1,175 @@
+/* Import Rajdhani font from Google 
+** modern feel which complements a brand focused on gaming and technology
+*/
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Primary Color */
+    --primary: #D32F2F; /* Red inspired by the logo */
+    
+    /* Grayscale Colors */
+    --light: #DADADA; /* Light Gray - Background */
+    --gray: #D3D3D3; /* Medium Gray - Secondary elements */
+    --dark: #000000; /* Dark Black - Text, Headers */
+    --white: #FFFFFF; /* White for neutral elements */
+    
+    /* Additional Bootstrap Overrides */
+    --primary-hover: #C62828; /* Darker Red for hover effects */
+    --border-color: #D3D3D3; /* For borders */
+    --bg-body: #DADADA; /* Body background color */
+    
+    /* Accent Colors */
+    --secondary-hover: #222222; /* Slightly lighter black for hover states */
+    --button-bg: #000000; /* Black for buttons */
+    --button-hover: #222222; /* Hover effect for buttons */
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/main-bg.webp') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: var(--dark); /* Dark color for text */
+    font-family: 'Lato', sans-serif;
+}
+
+/* Icon Styling */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+/* Button Styling */
+.shop-now-button {
+    background: var(--button-bg);
+    color: var(--white);
+    min-width: 260px;
+    border: 1px solid var(--border-color);
+}
+
+.btn-black {
+    background: var(--button-bg);
+    color: var(--white);
+}
+
+/* Hover, Active, Focus States for Buttons */
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: var(--button-hover); /* Lighter black for hover */
+    color: var(--white);
+}
+
+.text-black {
+    color: var(--dark) !important; /* Defined black color */
+}
+
+.border-black {
+    border: 1px solid var(--dark) !important;
+}
+
+/* rajdhani font classes */
+.rajdhani-light {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .rajdhani-regular {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .rajdhani-medium {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .rajdhani-semibold {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .rajdhani-bold {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+/* Top Nav Styles */
+#top-nav {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); 
+    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+#top-nav:hover {
+    opacity: 1; 
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.8); 
+}
+
+/* Button Styles */
+button, .btn {
+    background-color: var(--primary); /* Primary button color (red, in your case) */
+    color: var(--white); /* White text */
+    border: none; /* Remove default borders */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition on shadow and scale */
+}
+
+/* Box Shadow on Hover */
+button:hover, .btn:hover {
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.5); /* White bottom drop shadow */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Optional active state */
+button:active, .btn:active {
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.8); /* Stronger shadow on click */
+    transform: translateY(0); /* Reset lift on click */
+}
+
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* Fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
