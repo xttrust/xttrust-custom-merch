@@ -167,7 +167,7 @@ a.category-badge > span.badge:hover {
 
 .btn-black {
     background: var(--button-bg);
-    color: var(--white);
+    color: var(--white) !important;
 }
 
 /* Hover, Active, Focus States for Buttons */
