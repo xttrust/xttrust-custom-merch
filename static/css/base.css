@@ -170,6 +170,11 @@ a.category-badge > span.badge:hover {
     color: var(--white) !important;
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 /* Hover, Active, Focus States for Buttons */
 .shop-now-button:hover,
 .shop-now-button:active,
