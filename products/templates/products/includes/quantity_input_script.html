@@ -1,0 +1,62 @@
+<!-- This script was improved. Originaly from Boutique Ado walktru -->
+<script type="text/javascript">
+    // Disable +/- buttons outside 1-99 range
+    function handleEnableDisable(itemId) {
+        var $qtyInput = $(`#id_qty_${itemId}`);
+        var currentValue = parseInt($qtyInput.val()) || 1; // Fallback to 1 if invalid input
+        var minusDisabled = currentValue <= 1;
+        var plusDisabled = currentValue >= 99;
+        
+        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+    }
+
+    // Initialize all qty inputs on page load
+    $('.qty_input').each(function() {
+        var itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+
+    // Check enable/disable on manual input change
+    $('.qty_input').on('change', function() {
+        var itemId = $(this).data('item_id');
+        var currentValue = parseInt($(this).val()) || 1; // Ensure valid number
+        
+        // Prevent invalid manual input (less than 1 or greater than 99)
+        if (currentValue < 1) {
+            $(this).val(1);
+        } else if (currentValue > 99) {
+            $(this).val(99);
+        }
+        
+        handleEnableDisable(itemId);
+    });
+
+    // Increment quantity
+    $('.increment-qty').on('click', function(e) {
+       e.preventDefault();
+       var $closestInput = $(this).closest('.input-group').find('.qty_input');
+       var currentValue = parseInt($closestInput.val()) || 1;
+       
+       if (currentValue < 99) {
+           $closestInput.val(currentValue + 1);
+       }
+       
+       var itemId = $(this).data('item_id');
+       handleEnableDisable(itemId);
+    });
+
+    // Decrement quantity
+    $('.decrement-qty').on('click', function(e) {
+       e.preventDefault();
+       var $closestInput = $(this).closest('.input-group').find('.qty_input');
+       var currentValue = parseInt($closestInput.val()) || 1;
+       
+       if (currentValue > 1) {
+           $closestInput.val(currentValue - 1);
+       }
+       
+       var itemId = $(this).data('item_id');
+       handleEnableDisable(itemId);
+    });
+</script>

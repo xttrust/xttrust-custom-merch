@@ -36,6 +36,40 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+/* Default styling for larger screens */
+.qty_input {
+    width: 70px !important;
+    font-size: 16px;
+    text-align: center;
+}
+
+.input-group-prepend .btn,
+.input-group-append .btn {
+    width: auto;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .qty_input {
+        width: 50px !important; 
+        font-size: 14px;
+    }
+
+    .input-group-prepend .btn,
+    .input-group-append .btn {
+        width: 40px;
+    }
+
+    /* reduce button padding for smaller screens */
+    .input-group-prepend .btn span, 
+    .input-group-append .btn span {
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+
+
+
 /* Caregory badge */
 a.category-badge > span.badge:hover {
     background-color: var(--primary-hover);
