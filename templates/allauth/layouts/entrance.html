@@ -1,2 +1,12 @@
-{% extends "allauth/layouts/base.html" %}
-{% block content %}{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<div class="container custom-container spacing-container p-4">
+    <div class="overlay"></div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            {% block inner_content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

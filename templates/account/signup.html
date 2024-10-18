@@ -1,9 +1,12 @@
 {% extends "account/base_entrance.html" %}
 {% load allauth i18n %}
+{% load crispy_forms_tags %}
+
 {% block head_title %}
     {% trans "Signup" %}
 {% endblock head_title %}
-{% block content %}
+
+{% block inner_content %}
     {% element h1 %}
         {% trans "Sign Up" %}
     {% endelement %}
@@ -18,19 +21,14 @@
     {% endelement %}
     {% if not SOCIALACCOUNT_ONLY %}
         {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
+        <form method="post" action="{{ action_url }}">  {# Highlighted - Use standard form tag #}
+            {% csrf_token %}
+            {{ form|crispy }}  {# Highlighted - Render the form using Crispy Forms #}
+            {{ redirect_field }}
+            <button type="submit" class="btn btn-primary">  {# Highlighted - Use Bootstrap button #}
+                {% trans "Sign Up" %}
+            </button>
+        </form>
     {% endif %}
     {% if PASSKEY_SIGNUP_ENABLED %}
         {% element hr %}
@@ -42,4 +40,4 @@
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}

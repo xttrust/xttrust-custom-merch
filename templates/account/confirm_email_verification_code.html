@@ -1,10 +1,13 @@
 {% extends "account/base_entrance.html" %}
 {% load i18n %}
 {% load allauth account %}
+{% load crispy_forms_tags %}
+
 {% block head_title %}
     {% translate "Email Verification" %}
 {% endblock head_title %}
-{% block content %}
+
+{% block inner_content %}
     {% element h1 %}
         {% translate "Enter Email Verification Code" %}
     {% endelement %}
@@ -15,28 +18,23 @@
         {% blocktranslate %}We’ve sent a code to {{ email_link }}. The code expires shortly, so please enter it soon.{% endblocktranslate %}
     {% endelement %}
     {% url 'account_email_verification_sent' as action_url %}
-    {% element form form=form method="post" action=action_url tags="entrance,email,verification" %}
-        {% slot body %}
-            {% csrf_token %}
-            {% element fields form=form unlabeled=True %}
-            {% endelement %}
-            {{ redirect_field }}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" tags="prominent,confirm" %}
-                {% translate "Confirm" %}
-            {% endelement %}
-            {% if cancel_url %}
-                {% element button href=cancel_url tags="link,cancel" %}
-                    {% translate "Cancel" %}
-                {% endelement %}
-            {% else %}
-                {% element button type="submit" form="logout-from-stage" tags="link,cancel" %}
-                    {% translate "Cancel" %}
-                {% endelement %}
-            {% endif %}
-        {% endslot %}
-    {% endelement %}
+    <form method="post" action="{{ action_url }}"> {# Highlighted - Use a standard form tag #}
+        {% csrf_token %}
+        {{ form|crispy }} {# Highlighted - Use Crispy Forms to style the form #}
+        {{ redirect_field }}
+        <button type="submit" class="btn btn-primary"> {# Highlighted - Use Bootstrap button for styling #}
+            {% translate "Confirm" %}
+        </button>
+        {% if cancel_url %}
+            <a href="{{ cancel_url }}" class="btn btn-link"> {# Highlighted - Use anchor for cancel button #}
+                {% translate "Cancel" %}
+            </a>
+        {% else %}
+            <button type="submit" form="logout-from-stage" class="btn btn-link">
+                {% translate "Cancel" %}
+            </button>
+        {% endif %}
+    </form>
     {% if not cancel_url %}
         <form id="logout-from-stage"
               method="post"
@@ -45,4 +43,4 @@
             {% csrf_token %}
         </form>
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}
