@@ -1,8 +1,7 @@
-/* Import Rajdhani font from Google 
-** modern feel which complements a brand focused on gaming and technology
-*/
+/* Import Rajdhani font from Google */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
+/* Variables */
 :root {
     /* Primary Color */
     --primary: #D32F2F; /* Red inspired by the logo */
@@ -24,9 +23,8 @@
     --button-hover: #222222; /* Hover effect for buttons */
 }
 
-html {
-    height: 100%;
-}
+/* General Styles */
+html { height: 100%; }
 
 body {
     background: url('/media/main-bg.webp') no-repeat center center fixed;
@@ -36,176 +34,15 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-/* Default styling for larger screens */
-.qty_input {
-    width: 70px !important;
-    font-size: 16px;
-    text-align: center;
-}
-
-.input-group-prepend .btn,
-.input-group-append .btn {
-    width: auto;
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-    .qty_input {
-        width: 50px !important; 
-        font-size: 14px;
-    }
-
-    .input-group-prepend .btn,
-    .input-group-append .btn {
-        width: 40px;
-    }
-
-    /* reduce button padding for smaller screens */
-    .input-group-prepend .btn span, 
-    .input-group-append .btn span {
-        padding: 0.25rem 0.5rem;
-    }
-}
-
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
-.arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
-    border-bottom: 10px solid black;
-    position: absolute;
-    top: -10px;
-    right: 36px;
-}
-
-/* Convenience classes - colors copied from Bootstrap */
-.arrow-primary {
-    border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-}
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
-}
-
-.bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-
-
-/* Caregory badge */
-a.category-badge > span.badge:hover {
-    background-color: var(--primary-hover);
-}
-
-/* Back-to-Top Button CSS */
-.btt-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--light); /* Primary red color */
-    border-radius: 50%; /* Circular button */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999; /* Ensure it's above other content */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
-}
-
-.btt-button:hover {
-    background-color: var(--primary-hover); /* Darker red on hover */
-    
-    transform: scale(1.1); /* Enlarge button slightly */
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
-}
-
-.btt-link {
-    text-decoration: none;
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.btt-link:hover {
-    color: var(--white);
-}
-
-.btt-button .fa-arrow-up {
-    font-size: 20px;
-    color: var(--white);
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .btt-button {
-        width: 40px;
-        height: 40px;
-        bottom: 15px;
-        right: 15px;
-    }
-    .btt-button .fa-arrow-up {
-        font-size: 18px;
-    }
-}
-
-
-
-/* container */
-.custom-container {
-    background-color: var(--white);
-}
+/* Rajdhani Font Classes */
+.rajdhani-light { font-family: "Rajdhani", sans-serif; font-weight: 300; font-style: normal; }
+.rajdhani-regular { font-family: "Rajdhani", sans-serif; font-weight: 400; font-style: normal; }
+.rajdhani-medium { font-family: "Rajdhani", sans-serif; font-weight: 500; font-style: normal; }
+.rajdhani-semibold { font-family: "Rajdhani", sans-serif; font-weight: 600; font-style: normal; }
+.rajdhani-bold { font-family: "Rajdhani", sans-serif; font-weight: 700; font-style: normal; }
 
 /* Icon */
+/* from Bulma */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -214,97 +51,58 @@ a.category-badge > span.badge:hover {
     width: 1.5rem;
 }
 
-.logo-font {
-    text-transform: uppercase;
+/* Buttons */
+button, .btn {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.main-logo-link {
-    width: fit-content;
+button:hover, .btn:hover {
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.5); 
+    transform: translateY(-2px); 
 }
 
-/* Button */
-.shop-now-button {
+button:active, .btn:active {
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.8); /* Stronger shadow on click */
+    transform: translateY(0); /* Reset lift on click */
+}
+
+.shop-now-button, .btn-black {
     background: var(--button-bg);
     color: var(--white);
-    min-width: 260px;
     border: 1px solid var(--border-color);
 }
 
-.btn-black {
-    background: var(--button-bg);
-    color: var(--white) !important;
-}
-
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-/* Hover, Active, Focus States for Buttons */
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: var(--button-hover); /* Lighter black for hover */
+.shop-now-button:hover, .btn-black:hover,
+.shop-now-button:active, .btn-black:active,
+.shop-now-button:focus, .btn-black:focus {
+    background: var(--button-hover);
     color: var(--white);
 }
 
-.text-black {
-    color: var(--dark) !important; /* Defined black color */
+.text-black { color: var(--dark) !important; }
+.border-black { border: 1px solid var(--dark) !important; }
+
+/* Forms and Inputs */
+.qty_input {
+    width: 70px !important;
+    font-size: 16px;
+    text-align: center;
 }
 
-.border-black {
-    border: 1px solid var(--dark) !important;
+.input-group-prepend .btn, .input-group-append .btn {
+    width: auto;
 }
 
-/* rajdhani font classes */
-.rajdhani-light {
-    font-family: "Rajdhani", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .rajdhani-regular {
-    font-family: "Rajdhani", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .rajdhani-medium {
-    font-family: "Rajdhani", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .rajdhani-semibold {
-    font-family: "Rajdhani", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  .rajdhani-bold {
-    font-family: "Rajdhani", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-/* Top Nav */
-#top-nav {
+/* Navigation */
+#top-nav, #main-nav-container {
     background-color: rgba(0, 0, 0, 0.6);
     color: #FFFFFF;
     border-bottom: 1px solid #000000;
 }
 
-/* Main Nav */
-#main-nav-container {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #FFFFFF;
-    border-bottom: 1px solid #000000;
-}
-
-/* Base styling for the navigation links */
 .nav-link {
     color: #FFFFFF;
     position: relative; /* Required for pseudo-elements */
@@ -342,44 +140,117 @@ a.category-badge > span.badge:hover {
     background-color: #D32F2F;
 }
 
+/* Custom Elements */
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
 
-/* delivery-banner */
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary { border-bottom-color: #007bff !important; }
+.arrow-secondary { border-bottom-color: #6c757d !important; }
+.arrow-success { border-bottom-color: #28a745 !important; }
+.arrow-danger { border-bottom-color: #dc3545 !important; }
+.arrow-warning { border-bottom-color: #ffc107 !important; }
+.arrow-info { border-bottom-color: #17a2b8 !important; }
+.arrow-light { border-bottom-color: #f8f9fa !important; }
+.arrow-dark { border-bottom-color: #343a40 !important; }
+
+/* Containers and Banners */
+.custom-container { background-color: var(--white); }
+
 #delivery-banner {
     background-color: rgba(0, 0, 0, 0.6);
     color: #FFFFFF;
 }
 
-/* Button Styles */
-button, .btn {
-    background-color: var(--primary);
+/* Back-to-Top Button */
+.btt-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btt-button:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btt-link {
+    text-decoration: none;
     color: var(--white);
-    border: none;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-/* Box Shadow on Hover */
-button:hover, .btn:hover {
-    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.5); 
-    transform: translateY(-2px); 
+.btt-link:hover { color: var(--white); }
+
+.btt-button .fa-arrow-up {
+    font-size: 20px;
+    color: var(--white);
 }
 
-/* Optional active state */
-button:active, .btn:active {
-    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.8); /* Stronger shadow on click */
-    transform: translateY(0); /* Reset lift on click */
+/* Utility Classes */
+.message-container { position: fixed; top: 72px; right: 15px; z-index: 99999999999; }
+.custom-toast { overflow: visible; }
+.toast-capper { height: 2px; }
+.update-link, .remove-item { cursor: pointer; }
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
+/* Media Queries */
+@media (max-width: 768px) {
+    .qty_input {
+        width: 50px !important; 
+        font-size: 14px;
+    }
+    .input-group-prepend .btn, .input-group-append .btn {
+        width: 40px;
+    }
+    .input-group-prepend .btn span, .input-group-append .btn span {
+        padding: 0.25rem 0.5rem;
+    }
+    .btt-button {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+    .btt-button .fa-arrow-up {
+        font-size: 18px;
+    }
+}
 
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container { max-width: 80%; }
 }
 
-/* Fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -388,19 +259,10 @@ button:active, .btn:active {
         left: 0;
         z-index: 1030;
     }
-
-    .header-container {
-        padding-top: 164px;
-    }
+    .header-container { padding-top: 164px; }
 }
 
-
 @media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
-
-    body {
-        height: calc(100vh - 116px);
-    }
+    .header-container { padding-top: 116px; }
+    body { height: calc(100vh - 116px); }
 }

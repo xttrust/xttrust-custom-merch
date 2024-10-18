@@ -78,8 +78,8 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link btn btn-black rounded-0"><small>Update</small></a>
-                                        <a class="remove-item btn btn-black rounded-0 float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="update-link btn btn-info bg-info text-white rounded-0"><small>Update</small></a>
+                                        <a class="remove-item btn btn-danger bg-danger text-white rounded-0 float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
