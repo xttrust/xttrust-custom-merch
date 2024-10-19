@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Category(models.Model):
     """
@@ -58,10 +59,10 @@ class Product(models.Model):
         max_length=1024, null=True, blank=True,
         help_text="URL for the product image if hosted externally."
     )
-    image = models.ImageField(
-        null=True, blank=True, help_text="Upload an image for the product."
+    image = CloudinaryField(
+        'image', null=True, blank=True,
+        help_text="Upload an image for the product. Stored in Cloudinary."
     )
 
     def __str__(self):
         return self.name
-        
