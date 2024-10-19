@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-xttrust-xttrustcustomme-3okd1fasfzl.ws.codeinstitute-ide.net', 
-    'https://xttrust-custom-merch-bcda5a9b1581.herokuapp.com'
+    'xttrust-custom-merch-bcda5a9b1581.herokuapp.com'
     ]
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-xttrust-xttrustcustomme-3okd1fasfzl.ws.codeinstitute-ide.net',
