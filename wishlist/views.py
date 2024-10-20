@@ -14,8 +14,16 @@ def wishlist_view(request):
     template with the user's wishlist as context.
     """
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+
+    # SEO metadata for the wishlist page
+    seo_description = 'View and manage your wishlist at xttrust Merch. Save your favorite products for future purchases.'
+    seo_keywords = 'wishlist, favorite products, xttrust Merch, save items, manage wishlist'
+
     context = {
-        'wishlist': wishlist
+        'wishlist': wishlist,
+        'page_title': 'My Wishlist | xttrust Merch',
+        'seo_description': seo_description,
+        'seo_keywords': seo_keywords,
     }
     return render(request, 'wishlist/wishlist.html', context)
 
@@ -33,6 +41,18 @@ def add_to_wishlist(request, product_id):
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
     wishlist.products.add(product)
     messages.success(request, f'{product.name} has been added to your wishlist.')
+
+    # Redirect back to the wishlist page with SEO metadata
+    seo_description = f'Add {product.name} to your wishlist at xttrust Merch. \
+            Save your favorite products for later.'
+    seo_keywords = f'{product.name}, add to wishlist, xttrust Merch, save products'
+
+    context = {
+        'wishlist': wishlist,
+        'page_title': f'{product.name} added to Wishlist | xttrust Merch',
+        'seo_description': seo_description,
+        'seo_keywords': seo_keywords,
+    }
     return redirect('wishlist')
 
 
@@ -56,4 +76,14 @@ def remove_from_wishlist(request, product_id):
     else:
         messages.info(request, f'{product.name} was not in your wishlist.')
 
+    # Redirect back to the wishlist page with SEO metadata
+    seo_description = f'Remove {product.name} from your wishlist at xttrust Merch. Manage your saved products easily.'
+    seo_keywords = f'{product.name}, remove from wishlist, xttrust Merch, manage wishlist'
+
+    context = {
+        'wishlist': wishlist,
+        'page_title': f'{product.name} removed from Wishlist | xttrust Merch',
+        'seo_description': seo_description,
+        'seo_keywords': seo_keywords,
+    }
     return redirect('wishlist')
