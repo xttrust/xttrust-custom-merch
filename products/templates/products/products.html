@@ -82,20 +82,31 @@
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
 
-                                            {% if request.user.is_superuser %}
+                                            {% if request.user.is_authenticated %}
                                                 <div class="col p-2">
                                                     <small>
-                                                        <a href="{% url 'edit_product' product.id %}" 
-                                                            class="btn btn-sm btn-info bg-info">
-                                                            Edit
-                                                        </a> 
-                                                        <a href="{% url 'delete_product' product.id %}" 
-                                                            class="btn btn-sm btn-danger bg-danger">
-                                                            Delete
+                                                        <!-- Add to Wishlist button for all authenticated users -->
+                                                        <a href="#" class="btn btn-sm btn-primary bg-primary add-to-wishlist" data-product-id="{{ product.id }}">
+                                                            Add to Wishlist
                                                         </a>
+                                                        
+                                                        {% if request.user.is_superuser %}
+                                                            <!-- Superuser-specific buttons: Edit and Delete -->
+                                                            <hr>
+                                                            <a href="{% url 'edit_product' product.id %}" 
+                                                                class="btn btn-sm btn-info bg-info">
+                                                                Edit
+                                                            </a> 
+                                                            <a href="{% url 'delete_product' product.id %}" 
+                                                                class="btn btn-sm btn-danger bg-danger">
+                                                                Delete
+                                                            </a>
+                                                        {% endif %}
                                                     </small>
                                                 </div>
                                             {% endif %}
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -137,6 +148,34 @@
 
 {% block postloadjs %}
     {{ block.super }}
+        <script type="text/javascript">
+            $(document).ready(function() {
+        // jQuery event listener for 'Add to Wishlist' button click
+        $('.add-to-wishlist').click(function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+
+            // Retrieve the product ID from the data attribute
+            var productId = $(this).data('product-id');
+
+            // AJAX request to add the product to the wishlist
+            $.ajax({
+                url: '/wishlist/add/' + productId + '/',
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}' // CSRF token for security
+                },
+                success: function(response) {
+                    alert('Product added to wishlist!');
+                },
+                error: function(xhr, status, error) {
+                    alert('There was an error adding the product to the wishlist.');
+                }
+            });
+        });
+    });
+
+	</script>
+
     <script type="text/javascript">
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
