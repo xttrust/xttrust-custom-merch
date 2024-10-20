@@ -311,7 +311,67 @@ button:active, .btn:active {
     padding: 1.25rem;
 }
 
+/* Product card */
+.product-card {
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
 
+/* Card hover effect */
+.product-card:hover {
+    transform: translateY(-5px); /* Lift the card */
+}
+
+/* Product image styles */
+.product-image {
+    transition: transform 0.3s ease;
+    border-radius: 8px 8px 0 0; /* Rounded corners for the top only */
+}
+
+.product-image:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Product name styling */
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark);
+    transition: color 0.3s;
+}
+
+.product-name:hover {
+    color: var(--primary); /* Change color on hover */
+}
+
+/* Product price styling */
+.product-price {
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+/* Category link styles */
+.category-link {
+    color: var(--gray);
+    text-decoration: none;
+}
+
+.category-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Add to Wishlist button */
+.add-to-wishlist {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-to-wishlist:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05); /* Slight grow effect */
+}
 
 
 
