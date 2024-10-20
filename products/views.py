@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.utils.html import escape
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Product, Category
 from .forms import ProductForm
@@ -11,7 +12,7 @@ from .forms import ProductForm
 
 def all_products(request):
     """
-    A view to show all products, including sorting and search queries.
+    A view to show all products, including sorting, search queries, and pagination.
     Dynamically updates SEO meta information based on user actions.
     """
     products = Product.objects.all()
@@ -60,11 +61,21 @@ def all_products(request):
             seo_description = f'Search results for "{query}" at xttrust Merch.'
             seo_keywords.extend([query, 'search'])
 
+    # Pagination logic
+    paginator = Paginator(products, 12)  # Show 12 products per page
+    page_number = request.GET.get('page')
+    try:
+        products_page = paginator.get_page(page_number)
+    except PageNotAnInteger:
+        products_page = paginator.get_page(1)
+    except EmptyPage:
+        products_page = paginator.get_page(paginator.num_pages)
+
     # Current sorting for front-end display
     current_sorting = f'{sort}_{direction}'
 
     context = {
-        'products': products,
+        'products': products_page,
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,

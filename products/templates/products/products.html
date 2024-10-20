@@ -24,31 +24,6 @@
         </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2">
-                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                        <div class="sort-select-wrapper w-50">
-                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
-                            {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span><a class="text-secondary" href="{% url 'products' %}">Products Home</a> | </span>
-                            {% endif %}
-                            {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                        </p>
-                    </div>
-                </div>
                 <div class="row">
                     {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-3">
@@ -79,99 +54,40 @@
                                         {% else %}
                                             <small class="text-muted">No Rating</small>
                                         {% endif %}
-                                        {% if request.user.is_authenticated %}
-                                            <div class="mt-2">
-                                                <a href="#" class="btn btn-sm btn-primary add-to-wishlist" data-product-id="{{ product.id }}">
-                                                    Add to Wishlist
-                                                </a>
-                                                {% if request.user.is_superuser %}
-                                                    <hr>
-                                                    <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-info">
-                                                        Edit
-                                                    </a> 
-                                                    <a href="{% url 'delete_product' product.id %}" class="btn btn-sm btn-danger">
-                                                        Delete
-                                                    </a>
-                                                {% endif %}
-                                            </div>
-                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                        
                     {% endfor %}
                 </div>
+
+                <!-- Pagination Controls -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        {% if products.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ products.previous_page_number }}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}{% if request.GET.direction %}&direction={{ request.GET.direction }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for page_num in products.paginator.page_range %}
+                            <li class="page-item {% if products.number == page_num %}active{% endif %}">
+                                <a class="page-link" href="?page={{ page_num }}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}{% if request.GET.direction %}&direction={{ request.GET.direction }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">{{ page_num }}</a>
+                            </li>
+                        {% endfor %}
+                        {% if products.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ products.next_page_number }}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}{% if request.GET.direction %}&direction={{ request.GET.direction }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+
             </div>
         </div>
     </div>
-    <div class="btt-button shadow-sm">
-        <a class="btt-link" href="#" title="Back to TOP">
-            <i class="fa-solid fa-arrow-up text-black"></i>
-        </a>	
-    </div>
-    
-{% endblock %}
-
-
-{% block postloadjs %}
-    {{ block.super }}
-        <script type="text/javascript">
-            $(document).ready(function() {
-        // jQuery event listener for 'Add to Wishlist' button click
-        $('.add-to-wishlist').click(function(event) {
-            event.preventDefault(); // Prevent the default link behavior
-
-            // Retrieve the product ID from the data attribute
-            var productId = $(this).data('product-id');
-
-            // AJAX request to add the product to the wishlist
-            $.ajax({
-                url: '/wishlist/add/' + productId + '/',
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': '{{ csrf_token }}' // CSRF token for security
-                },
-                success: function(response) {
-                    alert('Product added to wishlist!');
-                },
-                error: function(xhr, status, error) {
-                    alert('There was an error adding the product to the wishlist.');
-                }
-            });
-        });
-    });
-
-	</script>
-
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
-
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
-
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
-
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
 {% endblock %}
