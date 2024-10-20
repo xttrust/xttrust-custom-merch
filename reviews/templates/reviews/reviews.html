@@ -1,3 +1,5 @@
+<!-- reviews/reviews.html -->
+
 {% extends "base.html" %}
 {% load static %}
 
@@ -32,11 +34,14 @@
                                         <span class="text-muted small">{{ review.created_at|date:"F j, Y, g:i a" }}</span>
                                     </div>
                                     <p class="my-2 mb-0 border-bottom">{{ review.body }}</p>
-                                    {% if user_review %}
-                                        <a href="{% url 'delete_review' user_review.id %}" 
-                                            class="text-danger">
-                                            <i class="fas fa-trash-alt"></i> Delete your review
-                                        </a>
+                                    <!-- Only show the delete button if this is the user's review -->
+                                    {% if request.user == review.user %}
+                                        <form action="{% url 'delete_review' review.id %}" method="POST" class="mt-2">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash-alt"></i> Delete your review
+                                            </button>
+                                        </form>
                                     {% endif %}
                                 </li>
                             {% endfor %}
@@ -48,7 +53,6 @@
                     {% endif %}
                 </div>
                 <div class="card-footer text-center bg-light">
-                    
                     <a href="{% url 'add_review' product.id %}" 
                     class="btn btn-primary rounded-pill">
                         <i class="fas fa-pencil-alt"></i> Add your review
