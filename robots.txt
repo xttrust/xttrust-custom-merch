@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /checkout/
+Disallow: /profile/
+Disallow: /cart/
+Allow: /
+
+Sitemap: https://xttrust-custom-merch-bcda5a9b1581.herokuapp.com/sitemap.xml
