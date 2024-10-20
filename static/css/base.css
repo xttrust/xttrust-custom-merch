@@ -226,7 +226,13 @@ button:active, .btn:active {
 .arrow-dark { border-bottom-color: #343a40 !important; }
 
 /* Containers and Banners */
-.custom-container { background-color: var(--white); }
+.custom-container {
+    background-color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .spacing-container {
     margin-top: 168px;
 }
@@ -288,6 +294,25 @@ button:active, .btn:active {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+/* Other styles */
+.card-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.card-body p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.list-group-item {
+    border: none;
+    padding: 1.25rem;
+}
+
+
+
 
 
 /* Media Queries */

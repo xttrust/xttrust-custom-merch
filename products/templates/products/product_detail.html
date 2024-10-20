@@ -44,6 +44,13 @@
                     <small class="text-muted">No Rating</small>
                 {% endif %}
 
+                <!-- Reviews button -->
+                 <br>
+                <a class="btn btn-info bg-info btn-sm" 
+                    href="{% url 'product_reviews' product.id %}">
+                    View Reviews
+                </a>
+
                 {% if request.user.is_superuser %}
                     <div class="col p-2">
                         <small>

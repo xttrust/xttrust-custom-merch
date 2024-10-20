@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_header %}
+<div class="container header-container py-4 text-center">
+    <h1 class="display-4 logo-font">Add a Review</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container custom-container my-5 p-5 vh-70">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white text-center">
+                    <h2 class="mb-0">{{ product.name }}</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary btn-block rounded-pill mt-3">
+                            <i class="fas fa-paper-plane"></i> Submit Review
+                        </button>
+                    </form>
+                </div>
+                <div class="card-footer text-center bg-light">
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-secondary rounded-pill">
+                        <i class="fas fa-arrow-left"></i> Back to Product
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

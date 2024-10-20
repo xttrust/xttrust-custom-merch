@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container py-4 text-center">
+    <h1 class="display-4 logo-font">Product Reviews</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container custom-container my-5 p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white text-center">
+                    <h2 class="mb-0">{{ product.name }}</h2>
+                </div>
+                <div class="card-body">
+                    {% if reviews %}
+                        <ul class="list-group list-group-flush">
+                            {% for review in reviews %}
+                                <li class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>
+                                            <strong class="text-primary">{{ review.user.username }}</strong> rated 
+                                            <span class="text-warning">
+                                                {% for i in star_range %}
+                                                    <i class="fas {% if review.rating >= i %}fa-star{% else %}fa-star-o{% endif %}"></i>
+                                                {% endfor %}
+                                            </span>
+                                        </span>
+                                        <span class="text-muted small">{{ review.created_at|date:"F j, Y, g:i a" }}</span>
+                                    </div>
+                                    <p class="my-2 mb-0 border-bottom">{{ review.body }}</p>
+                                    {% if user_review %}
+                                        <a href="{% url 'delete_review' user_review.id %}" 
+                                            class="text-danger">
+                                            <i class="fas fa-trash-alt"></i> Delete your review
+                                        </a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div class="alert alert-info text-center">
+                            <p class="mb-0">No reviews for this product yet. Be the first to share your thoughts!</p>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="card-footer text-center bg-light">
+                    
+                    <a href="{% url 'add_review' product.id %}" 
+                    class="btn btn-primary rounded-pill">
+                        <i class="fas fa-pencil-alt"></i> Add your review
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
