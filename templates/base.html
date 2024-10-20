@@ -2,13 +2,43 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-
+<head>
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% endblock %}
+
+        {% if seo_description %}
+            <meta name="description" content="{{ seo_description }}">
+        {% endif %}
+        {% if seo_keywords %}
+            <meta name="keywords" content="{{ seo_keywords }}">
+        {% endif %}
+        
+        <!-- Open Graph / Facebook Meta Tags -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ page_title }}">
+        <meta property="og:description" content="{{ seo_description }}">
+        <meta property="og:image" content="{% static 'images/favicon/favicon-48x48.png' %}">
+        <meta property="og:url" content="{{ request.build_absolute_uri }}">
+        <meta property="og:site_name" content="xttrust Merch">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ page_title }}">
+        <meta name="twitter:description" content="{{ seo_description }}">
+        <meta name="twitter:image" content="{% static 'images/favicon/favicon-48x48.png' %}">
+        
+        <!-- Robots -->
+        <meta name="robots" content="index, follow">
+        <meta name="googlebot" content="index, follow">
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+        <!-- Apple Meta Tags -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="{% static 'images/favicon/favicon-48x48.png' %}" sizes="48x48">
@@ -16,6 +46,7 @@
         <link rel="shortcut icon" href="{% static 'images/favicon/favicon.ico' %}">
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
         <meta name="apple-mobile-web-app-title" content="xttrust">
+    {% endblock %}
 
     {% block extra_meta %}
     {% endblock %}
@@ -41,8 +72,8 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>{% block extra_title %}{% endblock %} xttrust Merch</title>
-  </head>
+    <title>{{ page_title }}</title>
+</head>    
   <body>
     <header class="container-fluid fixed-top">
         <div id="top-nav" class="row pt-lg-2 d-none d-lg-flex">
