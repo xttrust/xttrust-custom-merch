@@ -440,6 +440,6 @@ button:active, .btn:active {
     }
 
     .increment-qty, .decrement-qty {
-        padding: .25rem .5rem !important;
+        padding: .09rem .1rem !important;
     }
 }
