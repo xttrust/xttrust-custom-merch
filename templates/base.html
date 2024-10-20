@@ -11,13 +11,11 @@
     {% endblock %}
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{% static 'favicon/favicon-48x48.png' %}" sizes="48x48">
-        <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
-        <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" href="{% static 'images/favicon/favicon-48x48.png' %}" sizes="48x48">
+        <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon/favicon.svg' %}">
+        <link rel="shortcut icon" href="{% static 'images/favicon/favicon.ico' %}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
         <meta name="apple-mobile-web-app-title" content="xttrust">
-        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
-
 
     {% block extra_meta %}
     {% endblock %}
@@ -79,9 +77,11 @@
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                     <a href="/admin" class="dropdown-item">Administration</a>
+                                    <div class="dropdown-divider"></div>
                                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <div class="dropdown-divider"></div>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
