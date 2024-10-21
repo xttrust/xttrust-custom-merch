@@ -1,11 +1,12 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
+
 class Category(models.Model):
     """
     The Category model represents product categories for the e-commerce store.
-    Each category has a `name` (used for internal reference) and a `friendly_name`
-    (a more human-readable name for display purposes).
+    Each category has a `name` (used for internal reference) and a
+    `friendly_name` (a more human-readable name for display purposes).
     """
 
     class Meta:

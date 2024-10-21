@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class FAQ(models.Model):
     """
     FAQ Model to store frequently asked questions and their answers.
