@@ -592,3 +592,65 @@ The footer provides easy navigation and access to important links and social med
 <details><summary>Footer Mobile</summary>
 <img src="./docs/images/footer-mobile.png" alt="Footer Mobile">
 </details>
+
+
+## Technologies
+
+### Technologies Used
+
+- [Bootstrap 5](https://getbootstrap.com/) was used to create a responsive and modern structure for the website.
+- [jQuery](https://jquery.com/) was utilized for simplified DOM manipulation and event handling.
+- [Django](https://www.djangoproject.com/) is the web framework used for developing the backend and serving dynamic content.
+- [PostgreSQL](https://www.postgresql.org/) is the database used to manage and store data securely.
+- [Cloudinary](https://pypi.org/project/cloudinary/1.27.0/) is a cloud-based media management platform that offers tools and services for storing, optimizing, transforming, and delivering images, videos, and other media assets.
+- [Stripe API](https://stripe.com/) was integrated for secure payment processing in the e-commerce functionality.
+- [GitHub](https://github.com/) was used for version control and hosting the source code.
+- [GitPod](https://gitpod.io/) was utilized as the development environment for coding and testing.
+- [Heroku](https://www.heroku.com/) is the platform used for deploying the live application.
+- [Gunicorn](https://gunicorn.org/) was used as the WSGI HTTP server for running the Django application in production.
+- [Font Awesome](https://fontawesome.com/) was used for the icons displayed across the website.
+- [Google Fonts](https://fonts.google.com/) was used to style the typography of the website.
+- [Favicon Generator](https://favicon.io/) was used to create the favicon for the website.
+- [Google Chrome Lighthouse](https://developers.google.com/web/tools/lighthouse) was used for performance, accessibility, and SEO testing.
+- [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) was used for debugging and optimizing responsiveness.
+- [W3C HTML Validator](https://validator.w3.org/) was used to validate HTML code for errors.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate CSS for compliance with best practices.
+- [CI Python Pep8 Checker](https://pep8ci.herokuapp.com/) was used to ensure the Python code follows the PEP8 style guide.
+- [xml-sitemaps.com](https://www.xml-sitemaps.com/) was used to create all links in sitemap.
+
+### Languages Used
+
+- **HTML5** (HyperText Markup Language)
+- **CSS3** (Cascading Style Sheets)
+- **JavaScript**
+- **Python**
+- **SQL** (Structured Query Language)
+- **Django Template Language**
+
+### Python Modules Imported
+
+### Python Modules Imported
+
+- [asgiref](https://pypi.org/project/asgiref/) (3.8.1): ASGI (Asynchronous Server Gateway Interface) is a specification for Python web servers and applications, used for handling asynchronous web requests in Django.
+- [boto3](https://pypi.org/project/boto3/) (1.35.44): The Amazon Web Services (AWS) SDK for Python, used for integrating and managing AWS services like S3 for file storage.
+- [botocore](https://pypi.org/project/botocore/) (1.35.44): A low-level interface for interacting with AWS services, utilized by `boto3` to provide APIs and services.
+- [cloudinary](https://pypi.org/project/cloudinary/) (1.41.0): Cloudinary Python SDK, used for managing and optimizing image and video uploads.
+- [crispy-bootstrap4](https://pypi.org/project/crispy-bootstrap4/) (2024.10): A Django application that simplifies styling forms with Bootstrap 4.
+- [dj-database-url](https://pypi.org/project/dj-database-url/) (0.5.0): Simplifies configuring database URLs in Django projects, especially in deployment environments like Heroku.
+- [Django](https://pypi.org/project/Django/) (5.1.2): The high-level Python web framework used for building and managing the backend of the application.
+- [django-allauth](https://pypi.org/project/django-allauth/) (65.0.2): An integrated set of Django applications for handling authentication, including registration, login, logout, and social account integration.
+- [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) (0.3.0): A storage backend for integrating Cloudinary with Django to manage and serve media files.
+- [django-countries](https://pypi.org/project/django-countries/) (7.6.1): Provides country choices for Django models, forms, and fields.
+- [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) (2.3): Enhances Django forms with more styling and layout options, using Bootstrap.
+- [django-storages](https://pypi.org/project/django-storages/) (1.14.4): A Django package that provides storage backends, used with AWS S3 for managing static and media files.
+- [gunicorn](https://pypi.org/project/gunicorn/) (23.0.0): A Python WSGI HTTP server for deploying the Django application in a production environment.
+- [jmespath](https://pypi.org/project/jmespath/) (1.0.1): A library for parsing and transforming JSON, used by `boto3` for AWS API responses.
+- [pillow](https://pypi.org/project/Pillow/) (11.0.0): Python Imaging Library (PIL) fork used for handling image files in Django applications.
+- [psycopg2](https://pypi.org/project/psycopg2/) (2.9.10): PostgreSQL adapter for Python, enabling Django to interact with PostgreSQL databases.
+- [s3transfer](https://pypi.org/project/s3transfer/) (0.10.3): Used by `boto3` for efficient and reliable transfers to and from AWS S3.
+- [sqlparse](https://pypi.org/project/sqlparse/) (0.5.1): A non-validating SQL parser for Python, used by Django for SQL statement handling.
+- [stripe](https://pypi.org/project/stripe/) (11.1.0): Stripe's official Python library, integrated for secure payment processing.
+- [whitenoise](https://pypi.org/project/whitenoise/) (6.7.0): A package that simplifies serving static files directly from the web server, improving application performance.
+
+
+
