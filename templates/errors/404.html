@@ -1,25 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
-    <div class="container header-container">
+    <div class="container custom-container vh-100 d-flex justify-content-center align-items-center">
         <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-    <div class="container custom-container my-1 p-4 h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                    The page you are looking for isn't available
-                </h1>
-                <div class="my-5">
-                    <h4>
-                        <a href="{% url 'products' %}" 
-                            class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
-                                Return to shop
-                        </a>
-                    </h4>
-                </div>
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-danger font-weight-bold">404</h1>
+                <h2 class="text-muted mb-3">Oops! The page you are looking for isn't available.</h2>
+                <p class="lead mb-4">It looks like the page you're trying to visit doesn't exist. It might have been moved or deleted.</p>
+                <a href="{% url 'products' %}" class="btn btn-danger btn-lg rounded-pill text-uppercase px-5 py-3">
+                    Return to Shop
+                </a>
             </div>
         </div>
     </div>
