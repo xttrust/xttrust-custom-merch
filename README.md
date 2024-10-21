@@ -602,7 +602,7 @@ The footer provides easy navigation and access to important links and social med
 - [jQuery](https://jquery.com/) was utilized for simplified DOM manipulation and event handling.
 - [Django](https://www.djangoproject.com/) is the web framework used for developing the backend and serving dynamic content.
 - [PostgreSQL](https://www.postgresql.org/) is the database used to manage and store data securely.
-- [Cloudinary](https://pypi.org/project/cloudinary/1.27.0/) is a cloud-based media management platform that offers tools and services for storing, optimizing, transforming, and delivering images, videos, and other media assets.
+- [Cloudinary](https://pypi.org/project/cloudinary/1.27.0/) was used for storing, optimizing, transforming, and delivering images, videos, and other media assets.
 - [Stripe API](https://stripe.com/) was integrated for secure payment processing in the e-commerce functionality.
 - [GitHub](https://github.com/) was used for version control and hosting the source code.
 - [GitPod](https://gitpod.io/) was utilized as the development environment for coding and testing.
@@ -653,4 +653,142 @@ The footer provides easy navigation and access to important links and social med
 - [whitenoise](https://pypi.org/project/whitenoise/) (6.7.0): A package that simplifies serving static files directly from the web server, improving application performance.
 
 
+## Testing
 
+For a comprehensive overview of the testing process, please refer to [TESTING.md](./TESTING.md). 
+
+The testing documentation includes detailed explanations of all the tests conducted, covering various scenarios, edge cases, and results to ensure the robustness and reliability of the application.
+
+## Bugs
+
+### Unfixed Bugs
+- HTML li and duplicate id
+
+## Deployment
+
+### Pre-Deployment Checklist
+
+To ensure a smooth deployment of the application on Heroku, follow these steps:
+
+To ensure a smooth deployment of the application on Heroku, follow these steps:
+
+1. **Update `requirements.txt`:**
+   - Keep the `requirements.txt` file current to ensure all necessary Python modules are included and correctly configured. This file lists all the dependencies your project needs to run.
+
+2. **Create a `Procfile`:**
+   - A `Procfile` is essential for Heroku deployment. It should be set up to configure a Gunicorn web server for your application. An example entry in the `Procfile` might look like:
+     ```
+     web: gunicorn app_name.wsgi
+     ```
+
+3. **Configure `settings.py`:**
+   - In `settings.py`, update the `ALLOWED_HOSTS and CSRF_TRUSTED_ORIGINS` list with your Heroku app's domain and `localhost`. For example:
+     ```python
+     ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
+     ```
+   - Ensure that all static files and directories are properly configured.
+
+4. **Set Environment Variables:**
+   - Configure all necessary environment variables in your `env.py` file, which should be included in your `.gitignore` file to keep sensitive information secure. Make sure the following variables are set:
+     - `CLOUDINARY_API_KEY`
+     - `CLOUDINARY_API_SECRET`
+     - `CLOUDINARY_CLOUD_NAME`
+     - `DATABASE_URL`
+     - `DEBUG`
+     - `EMAIL_HOST_PASS`
+     - `EMAIL_HOST_USER`
+     - `SECRET_KEY`
+     - `STRIPE_PUBLIC_KEY`
+     - `STRIPE_SECRET_KEY`
+     - `STRIPE_WH_SECRET`
+
+## Deployment
+
+### Deploying on Heroku
+
+1. **Create a Heroku Account:**
+   - If you don't already have one, sign up for a Heroku account.
+   - Optionally, sign up with a student account for additional credits.
+
+2. **Create a New Heroku App:**
+   - Once logged in, click on "Create New App".
+   - Choose a unique app name and select the appropriate region.
+
+3. **Set Deployment Method:**
+   - Select "Connect to GitHub" as the deployment method.
+   - Search for the desired repository, for example, `xttrust custom`.
+   - Enable automatic deploys and select the `main` branch.
+
+4. **Configure Environment Variables:**
+   - In the app's settings tab, click on "Reveal Config Vars".
+   - Input the required hidden variables such as `SECRET_KEY`, `DATABASE_URL`, and `CLOUDINARY_URL`. You can see a list of all ENV variables on section: 
+   **Set Environment Variables:**
+
+5. **Set Buildpacks:**
+   - In the settings tab, add `python` as buildpacks.
+
+6. **Deploy the App:**
+   - Navigate to the "Deploy" tab and click "Deploy Branch".
+
+### Forking the Repository
+
+1. **Go to the GitHub Repository:**
+   - Navigate to the repository you want to fork.
+
+2. **Fork the Repository:**
+   - Click the "Fork" button in the upper right-hand corner.
+   - Optionally, edit the repository name and description.
+   - Click the green "Create Fork" button.
+
+### Cloning the Repository
+
+1. **Go to the GitHub Repository:**
+   - Navigate to the repository you want to clone.
+
+2. **Clone the Repository:**
+   - Click the green "Code" button above the list of files.
+   - Choose to clone using HTTPS, SSH, or GitHub CLI, and copy the URL.
+   - Open Git Bash and navigate to the desired directory.
+   - Type `git clone` and paste the URL, e.g., `$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
+   - Press Enter to create your local clone.
+
+### Running the Repository Locally
+
+1. **Download the Repository:**
+   - Navigate to the GitHub repository.
+   - Click the green "Code" button and select "Download ZIP".
+   - Extract the downloaded ZIP file.
+
+2. **Set Up Environment Variables:**
+   - Create an `env.py` file in your project directory.
+   - Input the necessary environment variables, such as `SECRET_KEY`, `DATABASE_URL`, and `CLOUDINARY_URL`.
+
+3. **Install PostgreSQL:**
+   - Ensure [PostgreSQL](https://www.postgresql.org/) is installed and running on your machine.
+
+4. **Create a Virtual Environment:**
+   - Create a virtual environment to install the required Python modules.
+   - Activate the virtual environment and install the dependencies listed in the `requirements.txt` file.
+
+5. **Run Database Migrations:**
+   - Run `python manage.py makemigrations` and `python manage.py migrate` to apply database migrations.
+
+6. **Run the Development Server:**
+   - Start the development server using `python manage.py runserver`.
+   - Open your web browser and navigate to `http://localhost:8000` to view the application.
+
+
+# Credits
+
+## Content
+
+- All products were created using [ChatGPT](https://www.openai.com/chatgpt) to facilitate speed and efficiency.
+
+## Media
+
+- All primages were created using [ChatGPT](https://www.openai.com/chatgpt) to facilitate speed and efficiency.
+
+## Code
+
+- Credit to [Bootstrap](https://getbootstrap.com/) for providing the core HTML and CSS framework.
+- Credit to [CodeInstitute](https://codeinstitute.net/) for the "Boutique Ado Walkthrough".
